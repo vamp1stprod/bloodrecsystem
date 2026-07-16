@@ -1,0 +1,664 @@
+/* ===========================
+    OS - v0.0.1
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+
+    width:100%;
+    height:100%;
+
+}
+
+body{
+
+    background:#050505;
+
+    color:#ffffff;
+
+    body body {
+    font-family: "Share Tech Mono", monospace;
+}
+
+    overflow:hidden;
+
+}
+
+/* Fundo */
+
+#screen{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+/* Vinheta */
+
+#screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:radial-gradient(circle,#111 0%,#050505 70%);
+
+    z-index:-2;
+
+}
+
+/* Scanlines */
+
+#screen::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:repeating-linear-gradient(
+
+        to bottom,
+
+        transparent 0px,
+
+        transparent 3px,
+
+        rgba(255,255,255,.025) 4px
+
+    );
+
+    pointer-events:none;
+
+    animation:scan 8s linear infinite;
+
+    z-index:-1;
+
+}
+
+@keyframes scan{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(8px);
+
+    }
+
+}
+
+.container{
+
+    text-align:center;
+
+    user-select:none;
+
+}
+
+/* Logo */
+
+h1{
+
+    font-size:72px;
+
+    font-weight:700;
+
+    letter-spacing:8px;
+
+    text-transform:lowercase;
+
+    margin-bottom:30px;
+
+    text-shadow:
+        0 0 8px rgba(255,0,0,.6),
+        0 0 18px rgba(255,0,0,.25);
+
+}
+
+/* Linha do terminal */
+
+#connect{
+
+    color:#ff3b3b;
+
+    font-size:18px;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+
+}
+
+/* Cursor */
+
+#cursor{
+
+    animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* Versão */
+
+small{
+
+    color:#666;
+
+    letter-spacing:4px;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    h1{
+
+        font-size:44px;
+
+        letter-spacing:4px;
+
+    }
+
+    #connect{
+
+        font-size:14px;
+
+    }
+
+}
+/* ===========================
+   LOADING
+=========================== */
+
+.loading{
+
+    width:420px;
+
+    margin:40px auto 0;
+
+}
+
+.loading-bar{
+
+    width:100%;
+
+    height:8px;
+
+    background:#161616;
+
+    border:1px solid #2a2a2a;
+
+    overflow:hidden;
+
+}
+
+.loading-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:#ff2a2a;
+
+    box-shadow:0 0 10px red;
+
+}
+
+#percent{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#888;
+
+    letter-spacing:2px;
+
+}
+
+@media(max-width:768px){
+
+    .loading{
+
+        width:90%;
+
+    }
+
+}
+/* ===========================
+   BOOT
+=========================== */
+
+#boot{
+
+    width:500px;
+
+    max-width:95%;
+
+    margin:40px auto 0;
+
+    text-align:left;
+
+}
+
+#boot p{
+
+    color:#d8d8d8;
+
+    margin:12px 0;
+
+    animation:fade .3s;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(5px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ===========================
+   TERMINAL
+=========================== */
+
+.subtitle{
+
+    color:#ff3333;
+
+    letter-spacing:5px;
+
+    margin-bottom:30px;
+
+}
+
+#terminal{
+
+    width:650px;
+
+    max-width:95%;
+
+    margin:auto;
+
+    text-align:left;
+
+}
+
+#output{
+
+    min-height:220px;
+
+    color:#dcdcdc;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+#inputLine{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+#inputLine span{
+
+    color:#ff3333;
+
+}
+
+#terminalInput{
+
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:16px;
+
+}
+/* ===========================
+   BLOOD PARTICLES
+=========================== */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+.particle{
+
+    position:absolute;
+
+    bottom:-20px;
+
+    border-radius:50%;
+
+    background:#ff1a1a;
+
+    box-shadow:
+        0 0 6px #ff0000,
+        0 0 12px #ff0000,
+        0 0 20px #ff0000;
+
+    opacity:.8;
+
+    animation:rise linear forwards;
+
+}
+
+@keyframes rise{
+
+    from{
+
+        transform:translateY(0) scale(1);
+
+        opacity:.8;
+
+    }
+
+    to{
+
+        transform:translateY(-110vh) scale(.2);
+
+        opacity:0;
+
+    }
+
+}
+
+/* Glow no logo */
+
+h1{
+
+    animation:logoGlow 3s ease-in-out infinite;
+
+}
+
+@keyframes logoGlow{
+
+    0%{
+
+        text-shadow:
+        0 0 8px #ff0000,
+        0 0 15px #ff0000;
+
+    }
+
+    50%{
+
+        text-shadow:
+        0 0 12px #ff0000,
+        0 0 35px #ff0000,
+        0 0 60px #990000;
+
+    }
+
+    100%{
+
+        text-shadow:
+        0 0 8px #ff0000,
+        0 0 15px #ff0000;
+
+    }
+
+}
+
+/* Vinheta */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:radial-gradient(circle,transparent 40%,rgba(120,0,0,.18));
+
+}
+
+/* Flash aleatório */
+
+.glitch{
+
+    animation:glitchFlash .15s;
+
+}
+
+@keyframes glitchFlash{
+
+    0%{
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        filter:brightness(1.8);
+
+    }
+
+    100%{
+
+        filter:brightness(1);
+
+    }
+
+}
+.discount-code{
+
+    color:#ff2222;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    letter-spacing:8px;
+
+    text-shadow:
+    0 0 8px red,
+    0 0 20px red,
+    0 0 40px red;
+
+    animation:pulseCode 1s infinite;
+
+}
+
+@keyframes pulseCode{
+
+    50%{
+
+        opacity:.5;
+
+    }
+
+}
+#glitch-overlay {
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    background:
+    repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.08) 0px,
+        transparent 2px,
+        transparent 4px
+    );
+
+}
+
+
+.glitch-active {
+
+    animation: glitch 0.12s infinite;
+
+}
+
+
+@keyframes glitch {
+
+
+0% {
+    transform: translate(0);
+}
+
+
+25% {
+    transform: translate(-5px,3px);
+    filter: hue-rotate(90deg);
+}
+
+
+50% {
+    transform: translate(5px,-3px);
+    filter: hue-rotate(180deg);
+}
+
+
+75% {
+    transform: translate(-3px,5px);
+}
+
+
+100% {
+    transform: translate(0);
+}
+
+
+}
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+
+    body {
+
+        padding: 10px;
+
+        overflow-x: hidden;
+
+    }
+
+
+    #terminal {
+
+        width: 100%;
+
+        height: 100vh;
+
+        padding: 15px;
+
+        box-sizing: border-box;
+
+    }
+
+
+    #output {
+
+        font-size: 14px;
+
+        line-height: 1.5;
+
+        word-wrap: break-word;
+
+    }
+
+
+    #commandInput {
+
+        width: 100%;
+
+        font-size: 16px;
+
+        padding: 10px;
+
+        box-sizing: border-box;
+
+    }
+
+
+    .logo {
+
+        font-size: 28px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+}
