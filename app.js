@@ -1,4 +1,4 @@
-const system = document.getElementById("system");
+const system = document.querySelector(".container");
 window.addEventListener("load", ()=>{
 let progress = document.getElementById("progress");
 
@@ -61,28 +61,15 @@ button.style.display = "block";
 
 },1000);
 
-
 }
 
-
 },800);
-
-
-});
-window.addEventListener("click", () => {
-
-    const audio = document.getElementById("ambience");
-
-    audio.volume = 0.2; // volume baixo
-
-    audio.play();
 
 });
 
 const connect = document.getElementById("connect");
 
 let connected = false;
-
 
 const startButton = document.getElementById("start");
 
@@ -92,6 +79,10 @@ if(startButton){
     startButton.addEventListener("click", startSystem);
 
 }
+
+
+document.getElementById("connect")
+.addEventListener("click", startSystem);
 
 function playSystemSound(){
 
@@ -131,9 +122,12 @@ function startSystem() {
 
 }
 
-function showLoading() {
+function showLoading(){
 
-  system.innerHTML = `
+    const container = document.querySelector(".container");
+
+
+    container.innerHTML = `
 
         <h1>blood.rec</h1>
 
@@ -152,6 +146,7 @@ function showLoading() {
         </div>
 
     `;
+
 
     animateLoading();
 
@@ -242,7 +237,7 @@ function showLogin() {
 
     document.querySelector(".container").innerHTML = `
 
-        <h1>blood.rec</h1>
+        <h1>[BLD.REC_0x07]</h1>
 
         <div id="boot"></div>
 
@@ -291,7 +286,7 @@ function showTerminal(){
 
     document.querySelector(".container").innerHTML = `
 
-        <h1>UNKNOWN SYSTEM</h1>
+        <h1>[BLD.REC_0x07]</h1>
 
         <p class="subtitle">ACCESS TERMINAL</p>
 
@@ -343,7 +338,85 @@ function runCommand(command){
 
     const output = document.getElementById("output");
 
+    output.innerHTML = "";
+
     switch(command){
+
+        case "release":
+
+output.innerHTML += `
+
+<br><br>
+
+> SEARCHING DATABASE...
+
+<br>
+
+> ACCESSING ARCHIVE...
+
+<br>
+
+> DECRYPTING FILE: Blood.rec_RELEASE.log
+
+<br><br>
+
+==============================
+
+<br><br>
+
+[Blood.rec]
+
+<br><br>
+
+PROJECT:
+
+<br>
+
+Blood.rec
+
+<br><br>
+
+RELEASE DATE:
+
+<br>
+
+20.07.2026
+
+<br><br>
+
+VERSION:
+
+<br>
+
+1.0.0
+
+<br><br>
+
+STATUS:
+
+<br>
+
+PRE-RELEASE
+
+<br><br>
+
+CREATOR:
+
+<br>
+
+CLASSIFIED
+
+<br><br>
+
+==============================
+
+<br><br>
+
+> FILE UNLOCKED
+
+`;
+
+break;
 case "glitch":
 
 
@@ -362,7 +435,7 @@ output.innerHTML += `
 
 <br><br>
 
-> BLOOD.REC SYSTEM UNSTABLE
+> Blood.rec SYSTEM UNSTABLE
 
 <br><br>
 
@@ -384,7 +457,7 @@ output.innerHTML += `
 
 `;
 
-},5000);
+},1000);
 
 
 break;
@@ -507,7 +580,7 @@ setInterval(()=>{
 
     },120);
 
-},12000+Math.random()*8000);
+},12000+Math.random()*1000);
 
 function randomGlitch(){
 
@@ -553,7 +626,7 @@ function glitchScreen(){
 
         glitch.style.opacity = "0";
 
-    },800);
+    },100);
 
 }
 window.addEventListener("load", ()=>{

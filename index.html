@@ -7,13 +7,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>blood.rec</title>
+    <title>[BLD.REC_0x07]</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
+   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 
@@ -27,7 +27,9 @@
 
     <div class="container">
 
-        <h1>UNKNOWN SYSTEM</h1>
+ <h1 id="logo" data-text="[BLD.REC_0x07]">
+    [BLD.REC_0x07]
+</h1>
 
         <p id="connect">
             > CLICK TO CONNECT
@@ -39,9 +41,9 @@
 
 
 <!-- EASTER EGG -->
-<div class="system-info">
+<div class="system-info" id="releaseInfo"></div>
 
-    [ BLOOD.REC SYSTEM ]
+    [ Blood.rec site ]
 
     <br><br>
 
@@ -57,42 +59,43 @@
 
 </div>
 <div id="glitch-overlay"></div>
+<div id="boot" style="display:none;">
 
-<div id="boot" style="display:none;"></div>
-    
     <div class="boot-text">
-        
-        BLOOD.REC SYSTEM
-        <br><br>
-        
-        > INITIALIZING...
-        <br>
-        
-        > LOADING MEMORY...
-        <br>
-        
-        > CHECKING FILES...
-        <br>
-        
-        > ACCESSING CORE...
-        
-    </div>
-    
-    <div id="progress">
-        
-        [----------]
-        
-    </div>
-    
-</div>
 
+        [BLD.REC_0x07]
+
+        <br><br>
+
+        > INITIALIZING...
+
+        <br>
+
+        > LOADING MEMORY...
+
+        <br>
+
+        > CHECKING FILES...
+
+        <br>
+
+        > ACCESSING CORE...
+
+    </div>
+
+
+    <div id="progress">
+
+        [----------]
+
+    </div>
+
+</div>
 <audio id="ambience" src="sounds/ambiente.mp3" loop></audio>
 
 <button id="start">
 [ CONNECT ]
 </button>
-
-<div id="output"></div>
 
 <script src="app.js"></script>
 
