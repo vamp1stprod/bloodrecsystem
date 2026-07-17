@@ -269,6 +269,51 @@ document.body.classList.remove("glitch-active");
 
 },5000);
 
+case "glitch":
+
+
+document.body.classList.add("glitch-active");
+
+
+output.innerHTML += `
+
+<br><br>
+
+> WARNING !!!
+
+<br><br>
+
+> VISUAL CORRUPTION DETECTED
+
+<br><br>
+
+> BLOOD.REC SYSTEM UNSTABLE
+
+<br><br>
+
+> RECOVERING...
+
+`;
+
+
+setTimeout(() => {
+
+
+document.body.classList.remove("glitch-active");
+
+
+output.innerHTML += `
+
+<br><br>
+
+> SYSTEM RESTORED
+
+`;
+
+},5000);
+
+
+break;
 
 break;
 
