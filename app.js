@@ -555,3 +555,14 @@ function glitchScreen(){
     },800);
 
 }
+const button = document.getElementById("start");
+const audio = document.getElementById("ambience");
+
+
+button.addEventListener("click", ()=>{
+
+    audio.volume = 0.3;
+
+    audio.play();
+
+});
