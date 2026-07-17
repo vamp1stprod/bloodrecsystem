@@ -239,6 +239,38 @@ function runCommand(command){
     const output = document.getElementById("output");
 
     switch(command){
+        case "glitch":
+
+
+document.body.classList.add("glitch-active");
+
+
+output.innerHTML += `
+
+<br><br>
+
+> SYSTEM FAILURE
+
+<br>
+
+> VISUAL CORRUPTION DETECTED
+
+<br>
+
+> RECOVERING...
+
+`;
+
+
+setTimeout(()=>{
+
+document.body.classList.remove("glitch-active");
+
+
+},5000);
+
+
+break;
 
  case "help":
 
