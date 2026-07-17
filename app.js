@@ -1,6 +1,5 @@
+const system = document.getElementById("system");
 window.addEventListener("load", ()=>{
-
-
 let progress = document.getElementById("progress");
 
 let button = document.getElementById("start");
@@ -87,10 +86,24 @@ let connected = false;
 document.addEventListener("click", startSystem);
 
 function startSystem() {
+    function playSystemSound(){
+
+    const audio = document.getElementById("ambience");
+
+    if(audio){
+
+        audio.volume = 0.3;
+
+        audio.play();
+
+    }
+
+}
 
     if (connected) return;
 
     connected = true;
+    playSystemSound();
 
     connect.innerHTML = "> CONNECTING...";
 
@@ -100,7 +113,7 @@ function startSystem() {
 
 function showLoading() {
 
-    document.querySelector(".container").innerHTML = `
+  system.innerHTML = `
 
         <h1>blood.rec</h1>
 
@@ -311,36 +324,6 @@ function runCommand(command){
     const output = document.getElementById("output");
 
     switch(command){
-        case "glitch":
-
-
-document.body.classList.add("glitch-active");
-
-
-output.innerHTML += `
-
-<br><br>
-
-> SYSTEM FAILURE
-
-<br>
-
-> VISUAL CORRUPTION DETECTED
-
-<br>
-
-> RECOVERING...
-
-`;
-
-
-setTimeout(()=>{
-
-document.body.classList.remove("glitch-active");
-
-
-},5000);
-
 case "glitch":
 
 
@@ -368,8 +351,7 @@ output.innerHTML += `
 `;
 
 
-setTimeout(() => {
-
+setTimeout(()=>{
 
 document.body.classList.remove("glitch-active");
 
@@ -387,7 +369,6 @@ output.innerHTML += `
 
 break;
 
-break;
 
  case "help":
 
@@ -555,14 +536,22 @@ function glitchScreen(){
     },800);
 
 }
-const button = document.getElementById("start");
-const audio = document.getElementById("ambience");
+window.addEventListener("load", ()=>{
+
+    const button = document.getElementById("start");
+    const audio = document.getElementById("ambience");
 
 
-button.addEventListener("click", ()=>{
+    if(button && audio){
 
-    audio.volume = 0.3;
+        button.addEventListener("click", ()=>{
 
-    audio.play();
+            audio.volume = 0.3;
+
+            audio.play();
+
+        });
+
+    }
 
 });
