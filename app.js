@@ -1,3 +1,75 @@
+window.addEventListener("load", ()=>{
+
+
+let progress = document.getElementById("progress");
+
+let button = document.getElementById("start");
+
+let boot = document.getElementById("boot");
+
+
+let steps = [
+
+"[█---------] 10%",
+
+"[███-------] 30%",
+
+"[█████-----] 50%",
+
+"[████████--] 80%",
+
+"[██████████] 100%"
+
+];
+
+
+let i = 0;
+
+
+let loading = setInterval(()=>{
+
+
+progress.innerHTML = steps[i];
+
+
+i++;
+
+
+if(i >= steps.length){
+
+
+clearInterval(loading);
+
+
+setTimeout(()=>{
+
+
+boot.innerHTML += `
+
+<br><br>
+
+> SYSTEM READY
+
+<br>
+
+> ACCESS GRANTED
+
+`;
+
+
+button.style.display = "block";
+
+
+},1000);
+
+
+}
+
+
+},800);
+
+
+});
 window.addEventListener("click", () => {
 
     const audio = document.getElementById("ambience");
