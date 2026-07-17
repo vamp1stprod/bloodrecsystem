@@ -335,6 +335,8 @@ function showTerminal(){
 }
 function runCommand(command){
 
+    output.scrollTop = output.scrollHeight;
+
     command = command.trim().toLowerCase();
 
     const output = document.getElementById("output");
@@ -694,7 +696,7 @@ function createQuickCommands() {
 
             if(input){
                 input.value = btn.dataset.command;
-                input.focus();
+        
             }
 
             setTimeout(() => {
@@ -703,7 +705,7 @@ function createQuickCommands() {
 
                 if(input){
                     input.value = "";
-                    input.focus();
+            
                 }
 
             }, 150);
