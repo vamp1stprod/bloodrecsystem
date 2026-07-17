@@ -83,10 +83,17 @@ const connect = document.getElementById("connect");
 
 let connected = false;
 
-document.addEventListener("click", startSystem);
 
-function startSystem() {
-    function playSystemSound(){
+const startButton = document.getElementById("start");
+
+
+if(startButton){
+
+    startButton.addEventListener("click", startSystem);
+
+}
+
+function playSystemSound(){
 
     const audio = document.getElementById("ambience");
 
@@ -100,12 +107,25 @@ function startSystem() {
 
 }
 
+
+function startSystem() {
+
     if (connected) return;
 
     connected = true;
+
     playSystemSound();
 
-    connect.innerHTML = "> CONNECTING...";
+
+    const connectText = document.getElementById("connect");
+
+
+    if(connectText){
+
+        connectText.innerHTML = "> CONNECTING...";
+
+    }
+
 
     setTimeout(showLoading, 1000);
 
