@@ -306,7 +306,7 @@ function showTerminal(){
                     id="terminalInput"
                     type="text"
                     autocomplete="off"
-                    autofocus
+                
                 >
 
             </div>
@@ -317,7 +317,9 @@ function showTerminal(){
 
     const input = document.getElementById("terminalInput");
 
+    if(window.innerWidth > 768){
     input.focus();
+}
 
     input.addEventListener("keydown", function(e){
 
@@ -335,11 +337,11 @@ function showTerminal(){
 }
 function runCommand(command){
 
-    output.scrollTop = output.scrollHeight;
-
     command = command.trim().toLowerCase();
 
     const output = document.getElementById("output");
+
+    output.scrollTop = output.scrollHeight;
 
     output.innerHTML = "";
 
@@ -527,6 +529,9 @@ break;
         `;
 
     },3200);
+
+break;
+
 default:
 
 output.innerHTML = `
