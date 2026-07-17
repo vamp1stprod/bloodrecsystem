@@ -330,6 +330,7 @@ function showTerminal(){
         }
 
     });
+    createQuickCommands();
 
 }
 function runCommand(command){
@@ -524,6 +525,19 @@ break;
         `;
 
     },3200);
+default:
+
+output.innerHTML = `
+
+<br><br>
+
+> COMMAND NOT FOUND
+
+<br>
+
+Type HELP to list available commands.
+
+`;
 
 break;
     }
@@ -648,3 +662,54 @@ window.addEventListener("load", ()=>{
     }
 
 });
+function createQuickCommands() {
+
+    // Evita criar duas vezes
+    if (document.querySelector(".quick-commands")) return;
+
+    const quick = document.createElement("div");
+    quick.className = "quick-commands";
+
+    quick.innerHTML = `
+        <button class="quick-btn" data-command="help">HELP</button>
+        <button class="quick-btn" data-command="release">RELEASE</button>
+        <button class="quick-btn" data-command="glitch">GLITCH</button>
+    `;
+
+    // Procura o terminal
+    const output = document.getElementById("output");
+
+    if(output){
+
+        output.parentNode.appendChild(quick);
+
+    }
+
+    // Eventos dos botões
+    quick.querySelectorAll(".quick-btn").forEach(btn => {
+
+        btn.addEventListener("click", () => {
+
+            const input = document.getElementById("terminalInput");
+
+            if(input){
+                input.value = btn.dataset.command;
+                input.focus();
+            }
+
+            setTimeout(() => {
+
+                runCommand(btn.dataset.command);
+
+                if(input){
+                    input.value = "";
+                    input.focus();
+                }
+
+            }, 150);
+
+        });
+
+    });
+
+}

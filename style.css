@@ -958,3 +958,48 @@ filter:none;
 }
 
 }
+.quick-commands{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.quick-btn{
+
+    background:transparent;
+
+    color:#ff0000;
+
+    border:1px solid #ff0000;
+
+    padding:8px 18px;
+
+    font-family:monospace;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.quick-btn:hover{
+
+    background:#ff0000;
+
+    color:#000;
+
+}
+
+.quick-btn:active{
+
+    transform:scale(.95);
+
+}
